@@ -1,0 +1,52 @@
+{
+  "RootNamespace": "LibraryManagementSolution",
+  "ServerTypings": {
+    "LocalTexts": true
+  },
+  "Restore": {
+    "Exclude": [
+      "/wwwroot/Scripts/serenity/Serenity.CoreLib*.*"
+    ]
+  },
+  "Connections": [
+    {
+      "Key": "LibraryManagement",
+      "Tables": [
+        {
+          "Tablename": "dbo.AM_Author",
+          "Identifier": "Author",
+          "Module": "AdminManagement",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.AM_Book",
+          "Identifier": "Book",
+          "Module": "AdminManagement",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.AM_Category",
+          "Identifier": "Category",
+          "Module": "AdminManagement",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.AM_Publisher",
+          "Identifier": "Publisher",
+          "Module": "AdminManagement",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.AM_Topic",
+          "Identifier": "Topic",
+          "Module": "AdminManagement",
+          "PermissionKey": "Administration:General"
+        }
+      ]
+    }
+  ],
+  "UpgradeInfo": {
+    "InitialType": "Community",
+    "InitialVersion": "5.0.49.2"
+  }
+}
