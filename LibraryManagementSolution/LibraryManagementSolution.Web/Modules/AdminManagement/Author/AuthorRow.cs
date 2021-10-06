@@ -12,6 +12,7 @@ namespace LibraryManagementSolution.AdminManagement
     [DisplayName("Author"), InstanceName("Author")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
+    [LookupScript("AdminManagement.Author")]
     public sealed class AuthorRow : Row<AuthorRow.RowFields>, IIdRow, INameRow
     {
         [DisplayName("Author Id"), Identity, IdProperty]

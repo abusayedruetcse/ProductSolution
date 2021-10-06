@@ -12,6 +12,7 @@ namespace LibraryManagementSolution.AdminManagement
     [DisplayName("Category"), InstanceName("Category")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
+    [LookupScript("AdminManagement.Category")]
     public sealed class CategoryRow : Row<CategoryRow.RowFields>, IIdRow, INameRow
     {
         [DisplayName("Category Id"), Identity, IdProperty]
@@ -35,7 +36,7 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.NameBn[this] = value;
         }
 
-        [DisplayName("Topic"), ForeignKey("[dbo].[AM_Topic]", "TopicId"), LeftJoin("jTopic"), TextualField("TopicName")]
+        [DisplayName("Topic"), ForeignKey("[dbo].[AM_Topic]", "TopicId"), LeftJoin("jTopic"), TextualField("TopicName"), LookupInclude]
         public Int64? TopicId
         {
             get => fields.TopicId[this];

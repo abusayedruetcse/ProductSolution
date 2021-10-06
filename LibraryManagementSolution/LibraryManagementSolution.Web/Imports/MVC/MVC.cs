@@ -44,6 +44,16 @@ namespace MVC
                 public const string CategoryIndex = "~/Modules/AdminManagement/Category/CategoryIndex.cshtml";
             }
 
+            public static class Country
+            {
+                public const string CountryIndex = "~/Modules/AdminManagement/Country/CountryIndex.cshtml";
+            }
+
+            public static class Language
+            {
+                public const string LanguageIndex = "~/Modules/AdminManagement/Language/LanguageIndex.cshtml";
+            }
+
             public static class Publisher
             {
                 public const string PublisherIndex = "~/Modules/AdminManagement/Publisher/PublisherIndex.cshtml";

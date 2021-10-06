@@ -31,6 +31,18 @@
           "PermissionKey": "Administration:General"
         },
         {
+          "Tablename": "dbo.AM_Country",
+          "Identifier": "Country",
+          "Module": "AdminManagement",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.AM_Language",
+          "Identifier": "Language",
+          "Module": "AdminManagement",
+          "PermissionKey": "Administration:General"
+        },
+        {
           "Tablename": "dbo.AM_Publisher",
           "Identifier": "Publisher",
           "Module": "AdminManagement",
