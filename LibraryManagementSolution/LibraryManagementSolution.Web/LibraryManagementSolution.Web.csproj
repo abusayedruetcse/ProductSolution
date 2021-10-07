@@ -48,6 +48,11 @@
     <PackageReference Include="Serenity.Scripts" Version="5.0.51" />
     <!--</if:BasicSamples>-->
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\LibraryManagementDB\Account\" />
+    <Folder Include="Migrations\LibraryManagementDB\StallCustomer\" />
+    <Folder Include="Migrations\LibraryManagementDB\PublisherStall\" />
+  </ItemGroup>
   <Import Project="$(SolutionDir)Serenity\build\submodule.targets" Condition="Exists('$(SolutionDir)Serenity\build\submodule.targets')" />
   <Target Name="CreateInputsOutputs" BeforeTargets="BeforeBuild">
     <CreateItem Include="Modules\**\*.ts;Imports\**\*.ts;tsconfig.json">

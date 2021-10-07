@@ -22,14 +22,14 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.CountryId[this] = value;
         }
 
-        [DisplayName("Name"), Size(200), NotNull, QuickSearch, NameProperty]
+        [DisplayName("Name"), Size(200), NotNull, QuickSearch]
         public String Name
         {
             get => fields.Name[this];
             set => fields.Name[this] = value;
         }
 
-        [DisplayName("Name Bn"), Size(200), NotNull]
+        [DisplayName("Name Bn"), Size(200), NotNull, NameProperty]
         public String NameBn
         {
             get => fields.NameBn[this];

@@ -24,10 +24,14 @@ namespace LibraryManagementSolution.AdminManagement.Forms
         public Int64 TopicId { get; set; }
         [LookupEditor(typeof(CategoryRow), CascadeFrom = "TopicId", CascadeField = "TopicId")]
         public Int64 CategoryId { get; set; }
+        [HalfWidth(JustThis = true)]
         public String Edition { get; set; }
+        [HalfWidth(JustThis = true)]
         public Int32 NumberOfPages { get; set; }
+        [HalfWidth(JustThis = true)]
         [LookupEditor(typeof(CountryRow))]
         public Int32 CountryId { get; set; }
+        [HalfWidth(JustThis = true)]
         [LookupEditor(typeof(LanguageRow))]
         public Int32 LanguageId { get; set; }
         [TextAreaEditor(Rows = 4)]
