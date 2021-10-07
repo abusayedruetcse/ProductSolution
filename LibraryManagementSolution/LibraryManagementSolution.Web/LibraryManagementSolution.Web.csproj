@@ -51,7 +51,6 @@
   <ItemGroup>
     <Folder Include="Migrations\LibraryManagementDB\Account\" />
     <Folder Include="Migrations\LibraryManagementDB\StallCustomer\" />
-    <Folder Include="Migrations\LibraryManagementDB\PublisherStall\" />
   </ItemGroup>
   <Import Project="$(SolutionDir)Serenity\build\submodule.targets" Condition="Exists('$(SolutionDir)Serenity\build\submodule.targets')" />
   <Target Name="CreateInputsOutputs" BeforeTargets="BeforeBuild">
