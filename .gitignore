@@ -2,15 +2,7 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/LibraryManagementSolution/config
-/.vs/LibraryManagementSolution/DesignTimeBuild
-/LibraryManagementSolution/LibraryManagementSolution.Web/bin/Debug/net5.0
-/LibraryManagementSolution/LibraryManagementSolution.Web/App_Data
-/LibraryManagementSolution/LibraryManagementSolution.Web/node_modules
 /LibraryManagementSolution/LibraryManagementSolution.Web/obj/Debug/net5.0
-/LibraryManagementSolution/LibraryManagementSolution.Web/wwwroot/Scripts/site
-/LibraryManagementSolution/LibraryManagementSolution.Web/wwwroot/Content/site
-/LibraryManagementSolution/LibraryManagementSolution.Web/Imports/ServerTypings
 
 
 
