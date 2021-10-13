@@ -7830,3 +7830,21 @@ section.content > .s-DataGrid {
 .s-AdminManagement-CountryDialog .caption {
   width: 150px;
 }
+.s-PublisherStall-PurchaseOrderDialog > .size {
+  width: 650px;
+}
+.s-PublisherStall-PurchaseOrderDialog .caption {
+  width: 150px;
+}
+.s-PublisherStall-PurchaseOrderDetailListDialog > .size {
+  width: 650px;
+}
+.s-PublisherStall-PurchaseOrderDetailListDialog .caption {
+  width: 150px;
+}
+.s-PublisherStall-PurchaseOrderPaymentDialog > .size {
+  width: 650px;
+}
+.s-PublisherStall-PurchaseOrderPaymentDialog .caption {
+  width: 150px;
+}

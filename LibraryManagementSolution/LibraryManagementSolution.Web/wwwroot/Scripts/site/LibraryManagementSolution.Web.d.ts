@@ -5,6 +5,7 @@
 /// <reference types="jqueryui" />
 /// <reference types="serenity.pro.ui" />
 /// <reference types="serenity.pro.extensions" />
+/// <reference types="serenity.extensions" />
 declare namespace LibraryManagementSolution.AdminManagement {
     class AuthorColumns {
         static columnsKey: string;
@@ -155,6 +156,8 @@ declare namespace LibraryManagementSolution.AdminManagement {
         const idProperty = "BookId";
         const nameProperty = "NameBn";
         const localTextPrefix = "AdminManagement.Book";
+        const lookupKey = "AdminManagement.Book";
+        function getLookup(): Q.Lookup<BookRow>;
         const deletePermission = "Administration:General";
         const insertPermission = "Administration:General";
         const readPermission = "Administration:General";
@@ -931,6 +934,17 @@ declare namespace LibraryManagementSolution.Administration {
         }
     }
 }
+declare namespace LibraryManagementSolution.Common {
+    enum PurchaseStatus {
+        Draft = 1,
+        OrderSent = 2,
+        ChangeOrder = 3,
+        Canceled = 4,
+        OrderReceived = 5,
+        MoneyPaid = 6,
+        Closed = 7
+    }
+}
 declare namespace LibraryManagementSolution.Membership {
     interface ChangePasswordForm {
         OldPassword: Serenity.PasswordEditor;
@@ -1019,6 +1033,243 @@ declare namespace LibraryManagementSolution.Membership {
         DisplayName?: string;
         Email?: string;
         Password?: string;
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    class PurchaseOrderColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    class PurchaseOrderDetailListColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    interface PurchaseOrderDetailListForm {
+        BookId: Serenity.LookupEditor;
+        Quantity: Serenity.IntegerEditor;
+        UnitPrice: Serenity.DecimalEditor;
+        Discount: Serenity.IntegerEditor;
+        LineTotal: Serenity.DecimalEditor;
+    }
+    class PurchaseOrderDetailListForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    interface PurchaseOrderDetailListRow {
+        PurchaseOrderDetailListId?: number;
+        PurchaseOrderId?: number;
+        BookId?: number;
+        Quantity?: number;
+        UnitPrice?: number;
+        Discount?: number;
+        LineTotal?: number;
+        BookName?: string;
+        BookNameBn?: string;
+    }
+    namespace PurchaseOrderDetailListRow {
+        const idProperty = "PurchaseOrderDetailListId";
+        const localTextPrefix = "PublisherStall.PurchaseOrderDetailList";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            PurchaseOrderDetailListId = "PurchaseOrderDetailListId",
+            PurchaseOrderId = "PurchaseOrderId",
+            BookId = "BookId",
+            Quantity = "Quantity",
+            UnitPrice = "UnitPrice",
+            Discount = "Discount",
+            LineTotal = "LineTotal",
+            BookName = "BookName",
+            BookNameBn = "BookNameBn"
+        }
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    namespace PurchaseOrderDetailListService {
+        const baseUrl = "PublisherStall/PurchaseOrderDetailList";
+        function Create(request: Serenity.SaveRequest<PurchaseOrderDetailListRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<PurchaseOrderDetailListRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PurchaseOrderDetailListRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PurchaseOrderDetailListRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "PublisherStall/PurchaseOrderDetailList/Create",
+            Update = "PublisherStall/PurchaseOrderDetailList/Update",
+            Delete = "PublisherStall/PurchaseOrderDetailList/Delete",
+            Retrieve = "PublisherStall/PurchaseOrderDetailList/Retrieve",
+            List = "PublisherStall/PurchaseOrderDetailList/List"
+        }
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    interface PurchaseOrderForm {
+        TokenNo: Serenity.StringEditor;
+        PublisherId: Serenity.LookupEditor;
+        OrderDate: Serenity.DateEditor;
+        OrderDetailList: PurchaseOrderDetailListEditor;
+        SubTotal: Serenity.DecimalEditor;
+        ServiceCharge: Serenity.DecimalEditor;
+        Other: Serenity.DecimalEditor;
+        InitialLess: Serenity.DecimalEditor;
+        InitialPaid: Serenity.DecimalEditor;
+        TotalPayable: Serenity.DecimalEditor;
+        Status: Serenity.EnumEditor;
+    }
+    class PurchaseOrderForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    class PurchaseOrderPaymentColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    interface PurchaseOrderPaymentForm {
+        PurchaseOrderId: Serenity.StringEditor;
+        PaymentDate: Serenity.DateEditor;
+        PaymentAmount: Serenity.DecimalEditor;
+    }
+    class PurchaseOrderPaymentForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    interface PurchaseOrderPaymentRow {
+        PurchaseOrderPaymentId?: number;
+        PurchaseOrderId?: number;
+        PaymentDate?: string;
+        PaymentAmount?: number;
+        PurchaseOrderTokenNo?: string;
+        PurchaseOrderPublisherId?: number;
+        PurchaseOrderOrderDate?: string;
+        PurchaseOrderSubTotal?: number;
+        PurchaseOrderServiceCharge?: number;
+        PurchaseOrderOther?: number;
+        PurchaseOrderInitialLess?: number;
+        PurchaseOrderInitialPaid?: number;
+        PurchaseOrderTotalPayable?: number;
+        PurchaseOrderStatus?: number;
+    }
+    namespace PurchaseOrderPaymentRow {
+        const idProperty = "PurchaseOrderPaymentId";
+        const localTextPrefix = "PublisherStall.PurchaseOrderPayment";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            PurchaseOrderPaymentId = "PurchaseOrderPaymentId",
+            PurchaseOrderId = "PurchaseOrderId",
+            PaymentDate = "PaymentDate",
+            PaymentAmount = "PaymentAmount",
+            PurchaseOrderTokenNo = "PurchaseOrderTokenNo",
+            PurchaseOrderPublisherId = "PurchaseOrderPublisherId",
+            PurchaseOrderOrderDate = "PurchaseOrderOrderDate",
+            PurchaseOrderSubTotal = "PurchaseOrderSubTotal",
+            PurchaseOrderServiceCharge = "PurchaseOrderServiceCharge",
+            PurchaseOrderOther = "PurchaseOrderOther",
+            PurchaseOrderInitialLess = "PurchaseOrderInitialLess",
+            PurchaseOrderInitialPaid = "PurchaseOrderInitialPaid",
+            PurchaseOrderTotalPayable = "PurchaseOrderTotalPayable",
+            PurchaseOrderStatus = "PurchaseOrderStatus"
+        }
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    namespace PurchaseOrderPaymentService {
+        const baseUrl = "PublisherStall/PurchaseOrderPayment";
+        function Create(request: Serenity.SaveRequest<PurchaseOrderPaymentRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<PurchaseOrderPaymentRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PurchaseOrderPaymentRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PurchaseOrderPaymentRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "PublisherStall/PurchaseOrderPayment/Create",
+            Update = "PublisherStall/PurchaseOrderPayment/Update",
+            Delete = "PublisherStall/PurchaseOrderPayment/Delete",
+            Retrieve = "PublisherStall/PurchaseOrderPayment/Retrieve",
+            List = "PublisherStall/PurchaseOrderPayment/List"
+        }
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    interface PurchaseOrderRow {
+        PurchaseOrderId?: number;
+        TokenNo?: string;
+        PublisherId?: number;
+        OrderDate?: string;
+        SubTotal?: number;
+        ServiceCharge?: number;
+        Other?: number;
+        InitialLess?: number;
+        InitialPaid?: number;
+        TotalPayable?: number;
+        Status?: Common.PurchaseStatus;
+        PublisherName?: string;
+        PublisherNameBn?: string;
+        PublisherContactNo?: string;
+        PublisherMail?: string;
+        PublisherDescription?: string;
+        PublisherStartDate?: string;
+        OrderDetailList?: PurchaseOrderDetailListRow[];
+    }
+    namespace PurchaseOrderRow {
+        const idProperty = "PurchaseOrderId";
+        const nameProperty = "TokenNo";
+        const localTextPrefix = "PublisherStall.PurchaseOrder";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            PurchaseOrderId = "PurchaseOrderId",
+            TokenNo = "TokenNo",
+            PublisherId = "PublisherId",
+            OrderDate = "OrderDate",
+            SubTotal = "SubTotal",
+            ServiceCharge = "ServiceCharge",
+            Other = "Other",
+            InitialLess = "InitialLess",
+            InitialPaid = "InitialPaid",
+            TotalPayable = "TotalPayable",
+            Status = "Status",
+            PublisherName = "PublisherName",
+            PublisherNameBn = "PublisherNameBn",
+            PublisherContactNo = "PublisherContactNo",
+            PublisherMail = "PublisherMail",
+            PublisherDescription = "PublisherDescription",
+            PublisherStartDate = "PublisherStartDate",
+            OrderDetailList = "OrderDetailList"
+        }
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    namespace PurchaseOrderService {
+        const baseUrl = "PublisherStall/PurchaseOrder";
+        function Create(request: Serenity.SaveRequest<PurchaseOrderRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<PurchaseOrderRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PurchaseOrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PurchaseOrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "PublisherStall/PurchaseOrder/Create",
+            Update = "PublisherStall/PurchaseOrder/Update",
+            Delete = "PublisherStall/PurchaseOrder/Delete",
+            Retrieve = "PublisherStall/PurchaseOrder/Retrieve",
+            List = "PublisherStall/PurchaseOrder/List"
+        }
     }
 }
 declare namespace LibraryManagementSolution {
@@ -1439,6 +1690,83 @@ declare namespace LibraryManagementSolution.Membership {
     class SignUpPanel extends Serenity.PropertyPanel<SignUpRequest, any> {
         protected getFormKey(): string;
         private form;
+        constructor(container: JQuery);
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    class PurchaseOrderDialog extends Serenity.EntityDialog<PurchaseOrderRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: PurchaseOrderForm;
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    class PurchaseOrderGrid extends Serenity.EntityGrid<PurchaseOrderRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PurchaseOrderDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    class PurchaseOrderDetailListDialog extends Serenity.Extensions.GridEditorDialog<PurchaseOrderDetailListRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected form: PurchaseOrderDetailListForm;
+        constructor();
+        protected afterLoadEntity(): void;
+        private calculateLineTotal;
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    class PurchaseOrderDetailListEditor extends Serenity.Extensions.GridEditorBase<PurchaseOrderDetailListRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PurchaseOrderDetailListDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+        validateEntity(row: any, id: any): boolean;
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    class PurchaseOrderDetailListGrid extends Serenity.EntityGrid<PurchaseOrderDetailListRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PurchaseOrderDetailListDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    class PurchaseOrderPaymentDialog extends Serenity.EntityDialog<PurchaseOrderPaymentRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: PurchaseOrderPaymentForm;
+    }
+}
+declare namespace LibraryManagementSolution.PublisherStall {
+    class PurchaseOrderPaymentGrid extends Serenity.EntityGrid<PurchaseOrderPaymentRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PurchaseOrderPaymentDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
         constructor(container: JQuery);
     }
 }

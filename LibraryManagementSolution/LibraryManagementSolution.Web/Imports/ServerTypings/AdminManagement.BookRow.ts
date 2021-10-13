@@ -49,6 +49,11 @@
         export const idProperty = 'BookId';
         export const nameProperty = 'NameBn';
         export const localTextPrefix = 'AdminManagement.Book';
+        export const lookupKey = 'AdminManagement.Book';
+
+        export function getLookup(): Q.Lookup<BookRow> {
+            return Q.getLookup<BookRow>('AdminManagement.Book');
+        }
         export const deletePermission = 'Administration:General';
         export const insertPermission = 'Administration:General';
         export const readPermission = 'Administration:General';
