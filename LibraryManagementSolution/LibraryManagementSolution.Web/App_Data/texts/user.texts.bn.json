@@ -1,0 +1,15 @@
+{
+  "Controls.QuickSearch.Placeholder": "অনুসন্ধান...",
+  "Controls.SelectEditor.EmptyItemText": "--নির্বাচন--",
+  "Db.AdminManagement.Author.EntityPlural": "লেখক",
+  "Db.AdminManagement.Author.EntitySingular": "লেখক",
+  "Db.AdminManagement.Book.EntityPlural": "বই",
+  "Db.AdminManagement.Book.EntitySingular": "বই",
+  "Db.AdminManagement.Language.EntityPlural": "ভাষা",
+  "Db.AdminManagement.Language.EntitySingular": "ভাষা",
+  "Navigation.AdminManagement/Author": "লেখক",
+  "Navigation.AdminManagement/Book": "বই",
+  "Navigation.AdminManagement/Country": "দেশ",
+  "Navigation.AdminManagement/Language": "ভাষা",
+  "Navigation.AdminManagement/Publisher": "প্রকাশনী"
+}

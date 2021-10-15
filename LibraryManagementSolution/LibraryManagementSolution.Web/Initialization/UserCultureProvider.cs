@@ -13,9 +13,7 @@ namespace LibraryManagementSolution.AppServices
         private static Dictionary<string, string> TwoLetterToFourLetter = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
             { "en", "en-US" },
-            { "zh", "zh-CN" },
-            { "vi", "vi-VN" },
-            { "fa", "fa-IR" }
+            { "bn", "bn-BN" }
         };
 
         public Task<ProviderCultureResult> DetermineProviderCultureResult(HttpContext httpContext)
@@ -40,18 +38,8 @@ namespace LibraryManagementSolution.AppServices
 
         private static List<CultureInfo> supportedCultures;
         private static readonly string[] supportedCultureIdentifiers = new string[] {
-            "de-DE",
-            "en-US",
-            "en-GB",
-            "es-ES",
-            "fa-IR",
-            "it-IT",
-            "pt-PT",
-            "pt-BR",
-            "ru-RU",
-            "tr-TR",
-            "vi-VN",
-            "zh-CN"
+            "en-US",            
+            "bn-BN"
         };
 
 
