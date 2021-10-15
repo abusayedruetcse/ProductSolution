@@ -111,6 +111,25 @@ namespace MVC
                     public const string AccountSignUp_AdminLTE = "~/Modules/Membership/Account/SignUp/AccountSignUp.AdminLTE.cshtml";
                 }
             }
+
+        }
+
+        public static class PublisherStall
+        {
+            public static class PurchaseOrder
+            {
+                public const string PurchaseOrderIndex = "~/Modules/PublisherStall/PurchaseOrder/PurchaseOrderIndex.cshtml";
+            }
+
+            public static class PurchaseOrderDetailList
+            {
+                public const string PurchaseOrderDetailListIndex = "~/Modules/PublisherStall/PurchaseOrderDetailList/PurchaseOrderDetailListIndex.cshtml";
+            }
+
+            public static class PurchaseOrderPayment
+            {
+                public const string PurchaseOrderPaymentIndex = "~/Modules/PublisherStall/PurchaseOrderPayment/PurchaseOrderPaymentIndex.cshtml";
+            }
         }
 
         public static class Shared

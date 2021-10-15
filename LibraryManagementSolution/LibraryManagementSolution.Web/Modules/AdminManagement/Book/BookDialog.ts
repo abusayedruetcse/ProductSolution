@@ -2,6 +2,7 @@
 namespace LibraryManagementSolution.AdminManagement {
 
     @Serenity.Decorators.registerClass()
+    @Serenity.Decorators.panel()
     export class BookDialog extends Serenity.EntityDialog<BookRow, any> {
         protected getFormKey() { return BookForm.formKey; }
         protected getIdProperty() { return BookRow.idProperty; }

@@ -12,6 +12,7 @@ namespace LibraryManagementSolution.AdminManagement
     [DisplayName("Book"), InstanceName("Book")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
+    [LookupScript("AdminManagement.Book")]
     public sealed class BookRow : Row<BookRow.RowFields>, IIdRow, INameRow
     {
         [DisplayName("Book Id"), Identity, IdProperty]
@@ -28,7 +29,7 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.Name[this] = value;
         }
 
-        [DisplayName("Name Bn"), Size(200), NotNull, NameProperty]
+        [DisplayName("Name Bn"), Size(200), NotNull, NameProperty, LookupInclude]
         public String NameBn
         {
             get => fields.NameBn[this];
@@ -119,7 +120,7 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.PreviewAttachment[this] = value;
         }
 
-        [DisplayName("Price"), Size(19), Scale(5)]
+        [DisplayName("Price"), Size(19), Scale(2), AlignRight, DisplayFormat("#,##0.00"), LookupInclude]
         public Decimal? Price
         {
             get => fields.Price[this];

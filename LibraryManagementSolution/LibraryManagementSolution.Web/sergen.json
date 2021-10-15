@@ -53,6 +53,24 @@
           "Identifier": "Topic",
           "Module": "AdminManagement",
           "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.PS_PurchaseOrder",
+          "Identifier": "PurchaseOrder",
+          "Module": "PublisherStall",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.PS_PurchaseOrderDetailList",
+          "Identifier": "PurchaseOrderDetailList",
+          "Module": "PublisherStall",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.PS_PurchaseOrderPayment",
+          "Identifier": "PurchaseOrderPayment",
+          "Module": "PublisherStall",
+          "PermissionKey": "Administration:General"
         }
       ]
     }

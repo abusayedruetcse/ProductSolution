@@ -8,16 +8,22 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSolution.Common
 {
-    [EnumKey("Common.PublisherStallStatus")]
-    public enum PublisherStallStatus
+    [EnumKey("Common.PurchaseStatus")]
+    public enum PurchaseStatus
     {
         [Description("Draft")]
         Draft = 1,
         [Description("Order Sent")]
         OrderSent = 2,
+        [Description("Change Order")]
+        ChangeOrder = 3,
+        [Description("Canceled")]
+        Canceled = 4,
         [Description("Order Received")]
-        OrderReceived = 3,
+        OrderReceived = 5,
         [Description("Money Paid")]
-        MoneyPaid = 4
+        MoneyPaid = 6,
+        [Description("Closed")]
+        Closed = 7,
     }
 }
