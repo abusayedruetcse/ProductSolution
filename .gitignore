@@ -2,10 +2,14 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+<<<<<<< HEAD
 /LibraryManagementSolution/LibraryManagementSolution.Web/bin/Debug/net5.0
 
+=======
+>>>>>>> 42a10562e8360ea4f06c622d343c3d9d8f371033
 /LibraryManagementSolution/LibraryManagementSolution.Web/obj/Debug/net5.0
 
 
 
 
+/LibraryManagementSolution/LibraryManagementSolution.Web/bin/Debug/net5.0
