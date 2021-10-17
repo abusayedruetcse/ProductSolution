@@ -74,5 +74,17 @@ namespace LibraryManagementSolution.Migrations.LibraryManagementDB
         {
         }
     }
+    [Migration(20211015_115513)]
+    public class LMDB_20211015_115513_PS_PurchaseOrderPaymentAlter : Migration
+    {
+        public override void Up()
+        {
+            Alter.Table("PS_PurchaseOrderPayment")
+                .AddColumn("PaymentType").AsInt32().Nullable();
+        }
+        public override void Down()
+        {
+        }
+    }
 
 }

@@ -72,6 +72,13 @@ namespace LibraryManagementSolution.PublisherStall
             set => fields.InitialLess[this] = value;
         }
 
+        [DisplayName("Total Less"), Size(8), Scale(2),NotMapped]
+        public Decimal? TotalLess
+        {
+            get => fields.TotalLess[this];
+            set => fields.TotalLess[this] = value;
+        }
+
         [DisplayName("Initial Paid"), Size(8), Scale(2)]
         public Decimal? InitialPaid
         {
@@ -79,11 +86,25 @@ namespace LibraryManagementSolution.PublisherStall
             set => fields.InitialPaid[this] = value;
         }
 
+        [DisplayName("Total Paid"), Size(8), Scale(2), NotMapped]
+        public Decimal? TotalPaid
+        {
+            get => fields.TotalPaid[this];
+            set => fields.TotalPaid[this] = value;
+        }
+
         [DisplayName("Total Payable"), Size(8), Scale(2)]
         public Decimal? TotalPayable
         {
             get => fields.TotalPayable[this];
             set => fields.TotalPayable[this] = value;
+        }
+
+        [DisplayName("Remaining Due"), Size(8), Scale(2), NotMapped]
+        public Decimal? RemainingDue
+        {
+            get => fields.RemainingDue[this];
+            set => fields.RemainingDue[this] = value;
         }
 
         [DisplayName("Status")]
@@ -143,9 +164,93 @@ namespace LibraryManagementSolution.PublisherStall
             get => fields.OrderDetailList[this];
             set => fields.OrderDetailList[this] = value;
         }
+        [DisplayName("Pay List")]
+        [MasterDetailRelation(foreignKey: nameof(PurchaseOrderPaymentRow.PurchaseOrderId), FilterField = nameof(PurchaseOrderPaymentRow.PaymentType), FilterValue = PurchasePaymentType.Pay), NotMapped]
+        public List<PurchaseOrderPaymentRow> OrderPayList
+        {
+            get => fields.OrderPayList[this];
+            set => fields.OrderPayList[this] = value;
+        }
+        [DisplayName("Less List")]
+        [MasterDetailRelation(foreignKey: nameof(PurchaseOrderPaymentRow.PurchaseOrderId), FilterField = nameof(PurchaseOrderPaymentRow.PaymentType), FilterValue = PurchasePaymentType.Less), NotMapped]
+        public List<PurchaseOrderPaymentRow> OrderLessList
+        {
+            get => fields.OrderLessList[this];
+            set => fields.OrderLessList[this] = value;
+        }
+        #endregion 
+        #region OrderDetail Fields & AddButton
+        [DisplayName("Book"), NotMapped]
+        public Int64? BookId
+        {
+            get => fields.BookId[this];
+            set => fields.BookId[this] = value;
+        }
 
+        [DisplayName("Quantity"), AlignRight, NotMapped]
+        public Int32? Quantity
+        {
+            get => fields.Quantity[this];
+            set => fields.Quantity[this] = value;
+        }
+
+        [DisplayName("Unit Price"), Size(8), Scale(2), AlignRight, DisplayFormat("#,##0.00"), NotMapped]
+        public Decimal? UnitPrice
+        {
+            get => fields.UnitPrice[this];
+            set => fields.UnitPrice[this] = value;
+        }
+
+        [DisplayName("Discount"), AlignRight, NotMapped]
+        public Int32? Discount
+        {
+            get => fields.Discount[this];
+            set => fields.Discount[this] = value;
+        }
+
+        [DisplayName("Line Total")]
+        [ReadOnly(true), AlignRight, DisplayFormat("#,##0.00"), NotMapped]
+        public Decimal? LineTotal
+        {
+            get { return Fields.LineTotal[this]; }
+            set { Fields.LineTotal[this] = value; }
+        }
+        
+        [DisplayName("AddOrder Detail"), NotMapped]
+        public String AddOrderDetail
+        {
+            get => fields.AddOrderDetail[this];
+            set => fields.AddOrderDetail[this] = value;
+        }
         #endregion
+        #region Pay Fields & AddButton
+        [DisplayName("Payment Date"), NotMapped]
+        public DateTime? PaymentDate
+        {
+            get => fields.PaymentDate[this];
+            set => fields.PaymentDate[this] = value;
+        }
 
+        [DisplayName("Amount"), Size(8), Scale(2), AlignRight, NotMapped]
+        public Decimal? PaymentAmount
+        {
+            get => fields.PaymentAmount[this];
+            set => fields.PaymentAmount[this] = value;
+        }
+
+        [DisplayName("Payment Type"), NotMapped]
+        public PurchasePaymentType? PaymentType
+        {
+            get => (PurchasePaymentType?)fields.PaymentType[this];
+            set => fields.PaymentType[this] = (Int32?)value;
+        }
+        [DisplayName("Add Pay"), NotMapped]
+        public String AddPay
+        {
+            get => fields.AddPay[this];
+            set => fields.AddPay[this] = value;
+        }
+        #endregion
         public PurchaseOrderRow()
             : base()
         {
@@ -166,8 +271,11 @@ namespace LibraryManagementSolution.PublisherStall
             public DecimalField ServiceCharge;
             public DecimalField Other;
             public DecimalField InitialLess;
+            public DecimalField TotalLess;
             public DecimalField InitialPaid;
+            public DecimalField TotalPaid;
             public DecimalField TotalPayable;
+            public DecimalField RemainingDue;
             public Int32Field Status;
 
             public StringField PublisherName;
@@ -178,6 +286,21 @@ namespace LibraryManagementSolution.PublisherStall
             public DateTimeField PublisherStartDate;
 
             public readonly ListField<PurchaseOrderDetailListRow> OrderDetailList;
+            public readonly ListField<PurchaseOrderPaymentRow> OrderPayList;
+            public readonly ListField<PurchaseOrderPaymentRow> OrderLessList;
+
+            public Int64Field BookId;
+            public Int32Field Quantity;
+            public DecimalField UnitPrice;
+            public Int32Field Discount;
+            public DecimalField LineTotal;
+            public StringField AddOrderDetail;
+
+            public DateTimeField PaymentDate;
+            public DecimalField PaymentAmount;
+            public Int32Field PaymentType;
+            public StringField AddPay;
+
         }
     }
 }

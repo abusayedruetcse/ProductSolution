@@ -1,6 +1,5 @@
 ﻿namespace LibraryManagementSolution.PublisherStall {
     export interface PurchaseOrderPaymentForm {
-        PurchaseOrderId: Serenity.StringEditor;
         PaymentDate: Serenity.DateEditor;
         PaymentAmount: Serenity.DecimalEditor;
     }
@@ -16,14 +15,12 @@
                 PurchaseOrderPaymentForm.init = true;
 
                 var s = Serenity;
-                var w0 = s.StringEditor;
-                var w1 = s.DateEditor;
-                var w2 = s.DecimalEditor;
+                var w0 = s.DateEditor;
+                var w1 = s.DecimalEditor;
 
                 Q.initFormType(PurchaseOrderPaymentForm, [
-                    'PurchaseOrderId', w0,
-                    'PaymentDate', w1,
-                    'PaymentAmount', w2
+                    'PaymentDate', w0,
+                    'PaymentAmount', w1
                 ]);
             }
         }
