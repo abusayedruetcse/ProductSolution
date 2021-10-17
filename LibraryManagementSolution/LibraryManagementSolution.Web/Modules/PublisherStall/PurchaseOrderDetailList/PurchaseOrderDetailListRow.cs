@@ -21,6 +21,13 @@ namespace LibraryManagementSolution.PublisherStall
             set => fields.PurchaseOrderDetailListId[this] = value;
         }
 
+        [DisplayName("id"), NotMapped]
+        public String? __id
+        {
+            get => fields.__id[this];
+            set => fields.__id[this] = value;
+        }
+
         [DisplayName("Purchase Order"), ForeignKey("[dbo].[PS_PurchaseOrder]", "PurchaseOrderId"), LeftJoin("jPurchaseOrder"), TextualField("PurchaseOrderTokenNo")]
         public Int64? PurchaseOrderId
         {
@@ -91,6 +98,7 @@ namespace LibraryManagementSolution.PublisherStall
         public class RowFields : RowFieldsBase
         {
             public Int64Field PurchaseOrderDetailListId;
+            public StringField __id;
             public Int64Field PurchaseOrderId;
             public Int64Field BookId;
             public Int32Field Quantity;

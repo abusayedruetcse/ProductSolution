@@ -7848,3 +7848,9 @@ section.content > .s-DataGrid {
 .s-PublisherStall-PurchaseOrderPaymentDialog .caption {
   width: 150px;
 }
+.s-PublisherStall-PurchaseOrderPaymentEditorDialog > .size {
+  width: 400px;
+}
+.s-PublisherStall-PurchaseOrderPaymentEditorDialog .caption {
+  width: 150px;
+}

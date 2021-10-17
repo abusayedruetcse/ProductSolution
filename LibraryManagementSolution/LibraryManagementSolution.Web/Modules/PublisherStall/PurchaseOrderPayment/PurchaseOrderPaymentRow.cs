@@ -1,4 +1,5 @@
-﻿using Serenity;
+﻿using LibraryManagementSolution.Common;
+using Serenity;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -20,6 +21,12 @@ namespace LibraryManagementSolution.PublisherStall
             get => fields.PurchaseOrderPaymentId[this];
             set => fields.PurchaseOrderPaymentId[this] = value;
         }
+        [DisplayName("id"), NotMapped]
+        public String? __id
+        {
+            get => fields.__id[this];
+            set => fields.__id[this] = value;
+        }
 
         [DisplayName("Purchase Order"), ForeignKey("[dbo].[PS_PurchaseOrder]", "PurchaseOrderId"), LeftJoin("jPurchaseOrder"), TextualField("PurchaseOrderTokenNo")]
         public Int64? PurchaseOrderId
@@ -35,81 +42,18 @@ namespace LibraryManagementSolution.PublisherStall
             set => fields.PaymentDate[this] = value;
         }
 
-        [DisplayName("Payment Amount"), Size(8), Scale(2)]
+        [DisplayName("Amount"), Size(8), Scale(2), AlignRight]
         public Decimal? PaymentAmount
         {
             get => fields.PaymentAmount[this];
             set => fields.PaymentAmount[this] = value;
         }
 
-        [DisplayName("Purchase Order Token No"), Expression("jPurchaseOrder.[TokenNo]")]
-        public String PurchaseOrderTokenNo
+        [DisplayName("Payment Type")]
+        public PurchasePaymentType? PaymentType
         {
-            get => fields.PurchaseOrderTokenNo[this];
-            set => fields.PurchaseOrderTokenNo[this] = value;
-        }
-
-        [DisplayName("Purchase Order Publisher Id"), Expression("jPurchaseOrder.[PublisherId]")]
-        public Int64? PurchaseOrderPublisherId
-        {
-            get => fields.PurchaseOrderPublisherId[this];
-            set => fields.PurchaseOrderPublisherId[this] = value;
-        }
-
-        [DisplayName("Purchase Order Order Date"), Expression("jPurchaseOrder.[OrderDate]")]
-        public DateTime? PurchaseOrderOrderDate
-        {
-            get => fields.PurchaseOrderOrderDate[this];
-            set => fields.PurchaseOrderOrderDate[this] = value;
-        }
-
-        [DisplayName("Purchase Order Sub Total"), Expression("jPurchaseOrder.[SubTotal]")]
-        public Decimal? PurchaseOrderSubTotal
-        {
-            get => fields.PurchaseOrderSubTotal[this];
-            set => fields.PurchaseOrderSubTotal[this] = value;
-        }
-
-        [DisplayName("Purchase Order Service Charge"), Expression("jPurchaseOrder.[ServiceCharge]")]
-        public Decimal? PurchaseOrderServiceCharge
-        {
-            get => fields.PurchaseOrderServiceCharge[this];
-            set => fields.PurchaseOrderServiceCharge[this] = value;
-        }
-
-        [DisplayName("Purchase Order Other"), Expression("jPurchaseOrder.[Other]")]
-        public Decimal? PurchaseOrderOther
-        {
-            get => fields.PurchaseOrderOther[this];
-            set => fields.PurchaseOrderOther[this] = value;
-        }
-
-        [DisplayName("Purchase Order Initial Less"), Expression("jPurchaseOrder.[InitialLess]")]
-        public Decimal? PurchaseOrderInitialLess
-        {
-            get => fields.PurchaseOrderInitialLess[this];
-            set => fields.PurchaseOrderInitialLess[this] = value;
-        }
-
-        [DisplayName("Purchase Order Initial Paid"), Expression("jPurchaseOrder.[InitialPaid]")]
-        public Decimal? PurchaseOrderInitialPaid
-        {
-            get => fields.PurchaseOrderInitialPaid[this];
-            set => fields.PurchaseOrderInitialPaid[this] = value;
-        }
-
-        [DisplayName("Purchase Order Total Payable"), Expression("jPurchaseOrder.[TotalPayable]")]
-        public Decimal? PurchaseOrderTotalPayable
-        {
-            get => fields.PurchaseOrderTotalPayable[this];
-            set => fields.PurchaseOrderTotalPayable[this] = value;
-        }
-
-        [DisplayName("Purchase Order Status"), Expression("jPurchaseOrder.[Status]")]
-        public Int32? PurchaseOrderStatus
-        {
-            get => fields.PurchaseOrderStatus[this];
-            set => fields.PurchaseOrderStatus[this] = value;
+            get => (PurchasePaymentType?)fields.PaymentType[this];
+            set => fields.PaymentType[this] = (Int32?)value;
         }
 
         public PurchaseOrderPaymentRow()
@@ -125,20 +69,11 @@ namespace LibraryManagementSolution.PublisherStall
         public class RowFields : RowFieldsBase
         {
             public Int64Field PurchaseOrderPaymentId;
+            public StringField __id;
             public Int64Field PurchaseOrderId;
             public DateTimeField PaymentDate;
             public DecimalField PaymentAmount;
-
-            public StringField PurchaseOrderTokenNo;
-            public Int64Field PurchaseOrderPublisherId;
-            public DateTimeField PurchaseOrderOrderDate;
-            public DecimalField PurchaseOrderSubTotal;
-            public DecimalField PurchaseOrderServiceCharge;
-            public DecimalField PurchaseOrderOther;
-            public DecimalField PurchaseOrderInitialLess;
-            public DecimalField PurchaseOrderInitialPaid;
-            public DecimalField PurchaseOrderTotalPayable;
-            public Int32Field PurchaseOrderStatus;
+            public Int32Field PaymentType;
         }
     }
 }

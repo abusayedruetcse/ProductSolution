@@ -8,7 +8,8 @@ namespace LibraryManagementSolution.PublisherStall {
         protected getLocalTextPrefix() { return PurchaseOrderDetailListRow.localTextPrefix; }
         
         constructor(container: JQuery) {
-            super(container);
+            super(container);            
+            this.element.find('.grid-toolbar').hide();
         }
 
         validateEntity(row, id) {

@@ -16,14 +16,12 @@ namespace LibraryManagementSolution.PublisherStall.Columns
         public Int64 PurchaseOrderId { get; set; }
         [EditLink]
         public String TokenNo { get; set; }
-        public String PublisherName { get; set; }
+        public String PublisherNameBn { get; set; }
         public DateTime OrderDate { get; set; }
-        public Decimal SubTotal { get; set; }
-        public Decimal ServiceCharge { get; set; }
-        public Decimal Other { get; set; }
-        public Decimal InitialLess { get; set; }
-        public Decimal InitialPaid { get; set; }
+        public Decimal SubTotal { get; set; }        
         public Decimal TotalPayable { get; set; }
+        public Decimal TotalPaid { get; set; }
+        public Decimal RemainingDue { get; set; }
         public Int32 Status { get; set; }
     }
 }

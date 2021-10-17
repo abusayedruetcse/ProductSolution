@@ -5,17 +5,21 @@ using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.IO;
+using LibraryManagementSolution.Common;
 
 namespace LibraryManagementSolution.PublisherStall.Columns
 {
     [ColumnsScript("PublisherStall.PurchaseOrderPayment")]
     [BasedOnRow(typeof(PurchaseOrderPaymentRow), CheckNames = true)]
     public class PurchaseOrderPaymentColumns
-    {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int64 PurchaseOrderPaymentId { get; set; }
-        public String PurchaseOrderTokenNo { get; set; }
+    {        
+        [EditLink]
+        [Width(100)]
         public DateTime PaymentDate { get; set; }
+        //[Width(100)]
+        //public PurchasePaymentType PaymentType { get; set; }
+        [Width(100)]
         public Decimal PaymentAmount { get; set; }
+        
     }
 }

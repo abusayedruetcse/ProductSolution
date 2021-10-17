@@ -1,6 +1,7 @@
 ﻿namespace LibraryManagementSolution.PublisherStall {
     export interface PurchaseOrderDetailListRow {
         PurchaseOrderDetailListId?: number;
+        __id?: string;
         PurchaseOrderId?: number;
         BookId?: number;
         Quantity?: number;
@@ -21,6 +22,7 @@
 
         export declare const enum Fields {
             PurchaseOrderDetailListId = "PurchaseOrderDetailListId",
+            __id = "__id",
             PurchaseOrderId = "PurchaseOrderId",
             BookId = "BookId",
             Quantity = "Quantity",

@@ -1,19 +1,11 @@
 ﻿namespace LibraryManagementSolution.PublisherStall {
     export interface PurchaseOrderPaymentRow {
         PurchaseOrderPaymentId?: number;
+        __id?: string;
         PurchaseOrderId?: number;
         PaymentDate?: string;
         PaymentAmount?: number;
-        PurchaseOrderTokenNo?: string;
-        PurchaseOrderPublisherId?: number;
-        PurchaseOrderOrderDate?: string;
-        PurchaseOrderSubTotal?: number;
-        PurchaseOrderServiceCharge?: number;
-        PurchaseOrderOther?: number;
-        PurchaseOrderInitialLess?: number;
-        PurchaseOrderInitialPaid?: number;
-        PurchaseOrderTotalPayable?: number;
-        PurchaseOrderStatus?: number;
+        PaymentType?: Common.PurchasePaymentType;
     }
 
     export namespace PurchaseOrderPaymentRow {
@@ -26,19 +18,11 @@
 
         export declare const enum Fields {
             PurchaseOrderPaymentId = "PurchaseOrderPaymentId",
+            __id = "__id",
             PurchaseOrderId = "PurchaseOrderId",
             PaymentDate = "PaymentDate",
             PaymentAmount = "PaymentAmount",
-            PurchaseOrderTokenNo = "PurchaseOrderTokenNo",
-            PurchaseOrderPublisherId = "PurchaseOrderPublisherId",
-            PurchaseOrderOrderDate = "PurchaseOrderOrderDate",
-            PurchaseOrderSubTotal = "PurchaseOrderSubTotal",
-            PurchaseOrderServiceCharge = "PurchaseOrderServiceCharge",
-            PurchaseOrderOther = "PurchaseOrderOther",
-            PurchaseOrderInitialLess = "PurchaseOrderInitialLess",
-            PurchaseOrderInitialPaid = "PurchaseOrderInitialPaid",
-            PurchaseOrderTotalPayable = "PurchaseOrderTotalPayable",
-            PurchaseOrderStatus = "PurchaseOrderStatus"
+            PaymentType = "PaymentType"
         }
     }
 }

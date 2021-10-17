@@ -26,4 +26,13 @@ namespace LibraryManagementSolution.Common
         [Description("Closed")]
         Closed = 7,
     }
+
+    [EnumKey("Common.PurchasePaymentType")]
+    public enum PurchasePaymentType
+    {
+        [Description("Pay")]
+        Pay = 1,
+        [Description("Less")]
+        Less = 2,        
+    }
 }
