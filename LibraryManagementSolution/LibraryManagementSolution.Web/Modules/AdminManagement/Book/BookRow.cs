@@ -22,20 +22,21 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.BookId[this] = value;
         }
 
-        [DisplayName("Name"), Size(200), NotNull, QuickSearch]
+        [DisplayName("Name"), Size(200), NotNull]
         public String Name
         {
             get => fields.Name[this];
             set => fields.Name[this] = value;
         }
 
-        [DisplayName("Name Bn"), Size(200), NotNull, NameProperty, LookupInclude]
+        [DisplayName("Name Bn"), Size(200), NotNull, LookupInclude]
         public String NameBn
         {
             get => fields.NameBn[this];
             set => fields.NameBn[this] = value;
         }
 
+        [LookupEditor(typeof(AuthorRow))]
         [DisplayName("Author"), ForeignKey("[dbo].[AM_Author]", "AuthorId"), LeftJoin("jAuthor"), TextualField("AuthorName")]
         public Int64? AuthorId
         {
@@ -43,6 +44,7 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.AuthorId[this] = value;
         }
 
+        [LookupEditor(typeof(AuthorRow))]
         [DisplayName("Translator"), ForeignKey("[dbo].[AM_Author]", "AuthorId"), LeftJoin("jTranslator"), TextualField("TranslatorName")]
         public Int64? TranslatorId
         {
@@ -50,6 +52,7 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.TranslatorId[this] = value;
         }
 
+        [LookupEditor(typeof(PublisherRow))]
         [DisplayName("Publisher"), ForeignKey("[dbo].[AM_Publisher]", "PublisherId"), LeftJoin("jPublisher"), TextualField("PublisherName")]
         public Int64? PublisherId
         {
@@ -57,6 +60,7 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.PublisherId[this] = value;
         }
 
+        [LookupEditor(typeof(TopicRow))]
         [DisplayName("Topic"), ForeignKey("[dbo].[AM_Topic]", "TopicId"), LeftJoin("jTopic"), TextualField("TopicName")]
         public Int64? TopicId
         {
@@ -64,6 +68,7 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.TopicId[this] = value;
         }
 
+        [LookupEditor(typeof(CategoryRow), CascadeFrom = "TopicId", CascadeField = "TopicId")]
         [DisplayName("Category"), ForeignKey("[dbo].[AM_Category]", "CategoryId"), LeftJoin("jCategory"), TextualField("CategoryName")]
         public Int64? CategoryId
         {
@@ -85,6 +90,7 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.NumberOfPages[this] = value;
         }
 
+        [LookupEditor(typeof(CountryRow))]
         [DisplayName("Country")]
         public Int32? CountryId
         {
@@ -92,6 +98,7 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.CountryId[this] = value;
         }
 
+        [LookupEditor(typeof(LanguageRow))]
         [DisplayName("Language")]
         public Int32? LanguageId
         {
@@ -148,6 +155,13 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.SortOrder[this] = value;
         }
 
+        [DisplayName("LookupText"), Expression("CONCAT(T0.[NameBn], CONCAT(' ', T0.[Name]))"), QuickSearch, NameProperty]
+        public String LookupText
+        {
+            get => fields.LookupText[this];
+            set => fields.LookupText[this] = value;
+        }
+
         [DisplayName("Author Name"), Expression("jAuthor.[Name]")]
         public String AuthorName
         {
@@ -160,35 +174,7 @@ namespace LibraryManagementSolution.AdminManagement
         {
             get => fields.AuthorNameBn[this];
             set => fields.AuthorNameBn[this] = value;
-        }
-
-        [DisplayName("Author Contact No"), Expression("jAuthor.[ContactNo]")]
-        public String AuthorContactNo
-        {
-            get => fields.AuthorContactNo[this];
-            set => fields.AuthorContactNo[this] = value;
-        }
-
-        [DisplayName("Author Mail"), Expression("jAuthor.[Mail]")]
-        public String AuthorMail
-        {
-            get => fields.AuthorMail[this];
-            set => fields.AuthorMail[this] = value;
-        }
-
-        [DisplayName("Author About"), Expression("jAuthor.[About]")]
-        public String AuthorAbout
-        {
-            get => fields.AuthorAbout[this];
-            set => fields.AuthorAbout[this] = value;
-        }
-
-        [DisplayName("Author Birth Date"), Expression("jAuthor.[BirthDate]")]
-        public DateTime? AuthorBirthDate
-        {
-            get => fields.AuthorBirthDate[this];
-            set => fields.AuthorBirthDate[this] = value;
-        }
+        }   
 
         [DisplayName("Translator Name"), Expression("jTranslator.[Name]")]
         public String TranslatorName
@@ -203,35 +189,7 @@ namespace LibraryManagementSolution.AdminManagement
             get => fields.TranslatorNameBn[this];
             set => fields.TranslatorNameBn[this] = value;
         }
-
-        [DisplayName("Translator Contact No"), Expression("jTranslator.[ContactNo]")]
-        public String TranslatorContactNo
-        {
-            get => fields.TranslatorContactNo[this];
-            set => fields.TranslatorContactNo[this] = value;
-        }
-
-        [DisplayName("Translator Mail"), Expression("jTranslator.[Mail]")]
-        public String TranslatorMail
-        {
-            get => fields.TranslatorMail[this];
-            set => fields.TranslatorMail[this] = value;
-        }
-
-        [DisplayName("Translator About"), Expression("jTranslator.[About]")]
-        public String TranslatorAbout
-        {
-            get => fields.TranslatorAbout[this];
-            set => fields.TranslatorAbout[this] = value;
-        }
-
-        [DisplayName("Translator Birth Date"), Expression("jTranslator.[BirthDate]")]
-        public DateTime? TranslatorBirthDate
-        {
-            get => fields.TranslatorBirthDate[this];
-            set => fields.TranslatorBirthDate[this] = value;
-        }
-
+        
         [DisplayName("Publisher Name"), Expression("jPublisher.[Name]")]
         public String PublisherName
         {
@@ -245,35 +203,7 @@ namespace LibraryManagementSolution.AdminManagement
             get => fields.PublisherNameBn[this];
             set => fields.PublisherNameBn[this] = value;
         }
-
-        [DisplayName("Publisher Contact No"), Expression("jPublisher.[ContactNo]")]
-        public String PublisherContactNo
-        {
-            get => fields.PublisherContactNo[this];
-            set => fields.PublisherContactNo[this] = value;
-        }
-
-        [DisplayName("Publisher Mail"), Expression("jPublisher.[Mail]")]
-        public String PublisherMail
-        {
-            get => fields.PublisherMail[this];
-            set => fields.PublisherMail[this] = value;
-        }
-
-        [DisplayName("Publisher Description"), Expression("jPublisher.[Description]")]
-        public String PublisherDescription
-        {
-            get => fields.PublisherDescription[this];
-            set => fields.PublisherDescription[this] = value;
-        }
-
-        [DisplayName("Publisher Start Date"), Expression("jPublisher.[StartDate]")]
-        public DateTime? PublisherStartDate
-        {
-            get => fields.PublisherStartDate[this];
-            set => fields.PublisherStartDate[this] = value;
-        }
-
+        
         [DisplayName("Topic Name"), Expression("jTopic.[Name]")]
         public String TopicName
         {
@@ -347,27 +277,16 @@ namespace LibraryManagementSolution.AdminManagement
             public Int32Field Discount;
             public Int32Field Availability;
             public Int32Field SortOrder;
+            public StringField LookupText;
 
             public StringField AuthorName;
             public StringField AuthorNameBn;
-            public StringField AuthorContactNo;
-            public StringField AuthorMail;
-            public StringField AuthorAbout;
-            public DateTimeField AuthorBirthDate;
 
             public StringField TranslatorName;
             public StringField TranslatorNameBn;
-            public StringField TranslatorContactNo;
-            public StringField TranslatorMail;
-            public StringField TranslatorAbout;
-            public DateTimeField TranslatorBirthDate;
 
             public StringField PublisherName;
             public StringField PublisherNameBn;
-            public StringField PublisherContactNo;
-            public StringField PublisherMail;
-            public StringField PublisherDescription;
-            public DateTimeField PublisherStartDate;
 
             public StringField TopicName;
             public StringField TopicNameBn;

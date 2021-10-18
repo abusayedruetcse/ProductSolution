@@ -29,7 +29,7 @@ namespace LibraryManagementSolution.AdminManagement
             set => fields.Name[this] = value;
         }
 
-        [DisplayName("Name Bn"), Size(200), NotNull, NameProperty]
+        [DisplayName("Name Bn"), Size(200), NotNull]
         public String NameBn
         {
             get => fields.NameBn[this];
@@ -63,6 +63,12 @@ namespace LibraryManagementSolution.AdminManagement
             get => fields.StartDate[this];
             set => fields.StartDate[this] = value;
         }
+        [DisplayName("LookupText"), Expression("CONCAT(T0.[NameBn], CONCAT(' ', T0.[Name]))"), QuickSearch, NameProperty]
+        public String LookupText
+        {
+            get => fields.LookupText[this];
+            set => fields.LookupText[this] = value;
+        }
 
         public PublisherRow()
             : base()
@@ -82,6 +88,7 @@ namespace LibraryManagementSolution.AdminManagement
             public StringField ContactNo;
             public StringField Mail;
             public StringField Description;
+            public StringField LookupText;
             public DateTimeField StartDate;
         }
     }

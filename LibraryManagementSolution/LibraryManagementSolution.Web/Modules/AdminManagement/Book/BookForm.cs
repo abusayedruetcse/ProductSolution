@@ -13,26 +13,19 @@ namespace LibraryManagementSolution.AdminManagement.Forms
     public class BookForm
     {
         public String Name { get; set; }
-        public String NameBn { get; set; }
-        [LookupEditor(typeof(AuthorRow))]
-        public Int64 AuthorId { get; set; }
-        [LookupEditor(typeof(AuthorRow))]
-        public Int64 TranslatorId { get; set; }
-        [LookupEditor(typeof(PublisherRow))]
-        public Int64 PublisherId { get; set; }
-        [LookupEditor(typeof(TopicRow))]
-        public Int64 TopicId { get; set; }
-        [LookupEditor(typeof(CategoryRow), CascadeFrom = "TopicId", CascadeField = "TopicId")]
+        public String NameBn { get; set; }        
+        public Int64 AuthorId { get; set; }        
+        public Int64 TranslatorId { get; set; }        
+        public Int64 PublisherId { get; set; }        
+        public Int64 TopicId { get; set; }        
         public Int64 CategoryId { get; set; }
         [HalfWidth(JustThis = true)]
         public String Edition { get; set; }
         [HalfWidth(JustThis = true)]
         public Int32 NumberOfPages { get; set; }
-        [HalfWidth(JustThis = true)]
-        [LookupEditor(typeof(CountryRow))]
+        [HalfWidth(JustThis = true)]        
         public Int32 CountryId { get; set; }
-        [HalfWidth(JustThis = true)]
-        [LookupEditor(typeof(LanguageRow))]
+        [HalfWidth(JustThis = true)]        
         public Int32 LanguageId { get; set; }
         [TextAreaEditor(Rows = 4)]
         public String Summary { get; set; }

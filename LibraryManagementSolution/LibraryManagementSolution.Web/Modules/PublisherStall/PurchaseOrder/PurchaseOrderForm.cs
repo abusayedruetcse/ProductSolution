@@ -19,7 +19,7 @@ namespace LibraryManagementSolution.PublisherStall.Forms
         [HalfWidth(JustThis = true)]
         public String TokenNo { get; set; }
         [HalfWidth(JustThis = true)]
-        [LookupEditor(typeof(PublisherRow))]
+        
         public Int64 PublisherId { get; set; }
         [HalfWidth(JustThis = true)]
         [DefaultValue("now")]
