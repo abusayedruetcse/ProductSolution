@@ -61,5 +61,7 @@ namespace LibraryManagementSolution.Common
         Pay = 1,
         [Description("Less")]
         Less = 2,
+        [Description("Cash Back")]
+        CashBack = 3
     }
 }
