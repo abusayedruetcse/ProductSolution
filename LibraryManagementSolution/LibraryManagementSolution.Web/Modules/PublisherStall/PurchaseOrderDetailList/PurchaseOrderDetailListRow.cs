@@ -63,7 +63,8 @@ namespace LibraryManagementSolution.PublisherStall
             set => fields.Discount[this] = value;
         }
 
-        [DisplayName("Line Total"), Expression("(T0.[UnitPrice] * T0.[Quantity] * ( 1 - T0.[Discount] / 100))")]
+
+        [DisplayName("Line Total"), Expression("(T0.[UnitPrice] * T0.[Quantity] * ( 1 - T0.[Discount] * 0.01))")]
         [ReadOnly(true), AlignRight, DisplayFormat("#,##0.00"), MinSelectLevel(SelectLevel.List)]
         public Decimal? LineTotal
         {

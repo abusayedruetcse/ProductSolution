@@ -8,7 +8,7 @@ using MyPages = LibraryManagementSolution.AdminManagement.Pages;
 [assembly: NavigationLink(int.MaxValue, "AdminManagement/Language", typeof(MyPages.LanguageController), icon: null)]
 [assembly: NavigationLink(int.MaxValue, "AdminManagement/Country", typeof(MyPages.CountryController), icon: null)]
 [assembly: NavigationLink(int.MaxValue, "AdminManagement/Book", typeof(MyPages.BookController), icon: null)]
-
+[assembly: NavigationLink(int.MaxValue, "AdminManagement/Employee", typeof(MyPages.EmployeeController), icon: null)]
 
 
 

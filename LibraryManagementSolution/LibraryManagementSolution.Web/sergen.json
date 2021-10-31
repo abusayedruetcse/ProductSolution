@@ -37,6 +37,12 @@
           "PermissionKey": "Administration:General"
         },
         {
+          "Tablename": "dbo.AM_Employee",
+          "Identifier": "Employee",
+          "Module": "AdminManagement",
+          "PermissionKey": "Administration:General"
+        },
+        {
           "Tablename": "dbo.AM_Language",
           "Identifier": "Language",
           "Module": "AdminManagement",
@@ -70,6 +76,30 @@
           "Tablename": "dbo.PS_PurchaseOrderPayment",
           "Identifier": "PurchaseOrderPayment",
           "Module": "PublisherStall",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.SC_Customer",
+          "Identifier": "Customer",
+          "Module": "StallCustomer",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.SC_ProductSale",
+          "Identifier": "ProductSale",
+          "Module": "StallCustomer",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.SC_ProductSaleDetail",
+          "Identifier": "ProductSaleDetail",
+          "Module": "StallCustomer",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.SC_ProductSalePayment",
+          "Identifier": "ProductSalePayment",
+          "Module": "StallCustomer",
           "PermissionKey": "Administration:General"
         }
       ]

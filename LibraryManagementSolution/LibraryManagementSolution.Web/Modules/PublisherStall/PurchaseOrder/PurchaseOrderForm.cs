@@ -44,6 +44,7 @@ namespace LibraryManagementSolution.PublisherStall.Forms
         [Tab("Account")]
         [Category("Cost")]
         [HalfWidth(JustThis = true), AlignRight]
+        [ReadOnly(true)]
         public Decimal SubTotal { get; set; }
         [HalfWidth(JustThis = true)]
         public Int32 Status { get; set; }
@@ -57,13 +58,13 @@ namespace LibraryManagementSolution.PublisherStall.Forms
         [ReadOnly(true)]
         public Decimal TotalLess { get; set; }
         [HalfWidth(JustThis = true), AlignRight, FormCssClass("line-break-lg")]
+        [ReadOnly(true)]
+        public Decimal TotalPayable { get; set; }
+        [HalfWidth(JustThis = true), AlignRight, FormCssClass("line-break-lg")]
         public Decimal InitialPaid { get; set; }
         [HalfWidth(JustThis = true), AlignRight, FormCssClass("line-break-lg")]
         [ReadOnly(true)]
-        public Decimal TotalPaid { get; set; }
-        [HalfWidth(JustThis = true), AlignRight, FormCssClass("line-break-lg")]
-        [ReadOnly(true)]
-        public Decimal TotalPayable { get; set; }
+        public Decimal TotalPaid { get; set; }        
         [HalfWidth(JustThis = true), AlignRight, FormCssClass("line-break-lg")]
         [ReadOnly(true)]
         public Decimal? RemainingDue { get; set; }        

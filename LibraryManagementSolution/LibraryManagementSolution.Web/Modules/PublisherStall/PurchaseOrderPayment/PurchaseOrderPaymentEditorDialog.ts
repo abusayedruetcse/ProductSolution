@@ -10,7 +10,7 @@ namespace LibraryManagementSolution.PublisherStall {
         constructor() {
             super();
             this.form = new PurchaseOrderPaymentForm(this.idPrefix);
-
+            this.toolbar.findButton('.delete-button').remove();
         }
 
     }
