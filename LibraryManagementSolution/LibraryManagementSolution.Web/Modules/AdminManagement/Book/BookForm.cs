@@ -12,12 +12,19 @@ namespace LibraryManagementSolution.AdminManagement.Forms
     [BasedOnRow(typeof(BookRow), CheckNames = true)]
     public class BookForm
     {
+        [TwoThirdWidth(JustThis = true)]
         public String Name { get; set; }
-        public String NameBn { get; set; }        
-        public Int64 AuthorId { get; set; }        
-        public Int64 TranslatorId { get; set; }        
-        public Int64 PublisherId { get; set; }        
-        public Int64 TopicId { get; set; }        
+        [TwoThirdWidth(JustThis = true)]
+        public String NameBn { get; set; }
+        [TwoThirdWidth(JustThis = true)]
+        public Int64 PublisherId { get; set; }
+        [HalfWidth(JustThis = true)]
+        public Int64 AuthorId { get; set; }
+        [HalfWidth(JustThis = true)]
+        public Int64 TranslatorId { get; set; }                
+        [HalfWidth(JustThis = true)]
+        public Int64 TopicId { get; set; }
+        [HalfWidth(JustThis = true)]
         public Int64 CategoryId { get; set; }
         [HalfWidth(JustThis = true)]
         public String Edition { get; set; }
@@ -27,18 +34,21 @@ namespace LibraryManagementSolution.AdminManagement.Forms
         public Int32 CountryId { get; set; }
         [HalfWidth(JustThis = true)]        
         public Int32 LanguageId { get; set; }
+        [OneThirdWidth(JustThis = true)]
+        public Decimal Price { get; set; }
+        [OneThirdWidth(JustThis = true)]
+        public Int32 Discount { get; set; }
+        [OneThirdWidth(JustThis = true)]
+        public Int32 Availability { get; set; }
         [TextAreaEditor(Rows = 4)]
         public String Summary { get; set; }
+        [HalfWidth(JustThis = true)]
         [ImageUploadEditor]
         public String CoverImage { get; set; }
+        [HalfWidth(JustThis = true)]
         [FileUploadEditor]
         public String PreviewAttachment { get; set; }
-        [HalfWidth(JustThis = true)]
-        public Decimal Price { get; set; }
-        [HalfWidth(JustThis = true)]
-        public Int32 Discount { get; set; }
-        [HalfWidth(JustThis = true)]
-        public Int32 Availability { get; set; }
+        
         [HalfWidth(JustThis = true)]
         public Int32 SortOrder { get; set; }
     }
