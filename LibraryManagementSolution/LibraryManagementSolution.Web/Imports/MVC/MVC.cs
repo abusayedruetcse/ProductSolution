@@ -170,6 +170,11 @@ namespace MVC
                 public const string ProductSalePaymentIndex = "~/Modules/StallCustomer/ProductSalePayment/ProductSalePaymentIndex.cshtml";
             }
 
+            public static class ReturnOrExchange
+            {
+                public const string ReturnOrExchangeIndex = "~/Modules/StallCustomer/ReturnOrExchange/ReturnOrExchangeIndex.cshtml";
+            }
+
         }
 
     }
