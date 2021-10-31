@@ -49,6 +49,11 @@ namespace MVC
                 public const string CountryIndex = "~/Modules/AdminManagement/Country/CountryIndex.cshtml";
             }
 
+            public static class Employee
+            {
+                public const string EmployeeIndex = "~/Modules/AdminManagement/Employee/EmployeeIndex.cshtml";
+            }
+
             public static class Language
             {
                 public const string LanguageIndex = "~/Modules/AdminManagement/Language/LanguageIndex.cshtml";
@@ -141,6 +146,30 @@ namespace MVC
             public const string _LayoutSlimHead = "~/Views/Shared/_LayoutSlimHead.cshtml";
             public const string Error = "~/Views/Shared/Error.cshtml";
             public const string LeftNavigation = "~/Views/Shared/LeftNavigation.cshtml";
+        }
+
+        public static class StallCustomer
+        {
+            public static class Customer
+            {
+                public const string CustomerIndex = "~/Modules/StallCustomer/Customer/CustomerIndex.cshtml";
+            }
+
+            public static class ProductSale
+            {
+                public const string ProductSaleIndex = "~/Modules/StallCustomer/ProductSale/ProductSaleIndex.cshtml";
+            }
+
+            public static class ProductSaleDetail
+            {
+                public const string ProductSaleDetailIndex = "~/Modules/StallCustomer/ProductSaleDetail/ProductSaleDetailIndex.cshtml";
+            }
+
+            public static class ProductSalePayment
+            {
+                public const string ProductSalePaymentIndex = "~/Modules/StallCustomer/ProductSalePayment/ProductSalePaymentIndex.cshtml";
+            }
+
         }
 
     }

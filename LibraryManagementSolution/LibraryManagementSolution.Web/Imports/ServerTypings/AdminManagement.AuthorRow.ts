@@ -7,11 +7,12 @@
         Mail?: string;
         About?: string;
         BirthDate?: string;
+        LookupText?: string;
     }
 
     export namespace AuthorRow {
         export const idProperty = 'AuthorId';
-        export const nameProperty = 'NameBn';
+        export const nameProperty = 'LookupText';
         export const localTextPrefix = 'AdminManagement.Author';
         export const lookupKey = 'AdminManagement.Author';
 
@@ -30,7 +31,8 @@
             ContactNo = "ContactNo",
             Mail = "Mail",
             About = "About",
-            BirthDate = "BirthDate"
+            BirthDate = "BirthDate",
+            LookupText = "LookupText"
         }
     }
 }

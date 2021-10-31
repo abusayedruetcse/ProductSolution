@@ -16,9 +16,9 @@
         Other: Serenity.DecimalEditor;
         InitialLess: Serenity.DecimalEditor;
         TotalLess: Serenity.DecimalEditor;
+        TotalPayable: Serenity.DecimalEditor;
         InitialPaid: Serenity.DecimalEditor;
         TotalPaid: Serenity.DecimalEditor;
-        TotalPayable: Serenity.DecimalEditor;
         RemainingDue: Serenity.DecimalEditor;
         PaymentDate: Serenity.DateEditor;
         PaymentAmount: Serenity.DecimalEditor;
@@ -65,9 +65,9 @@
                     'Other', w4,
                     'InitialLess', w4,
                     'TotalLess', w4,
+                    'TotalPayable', w4,
                     'InitialPaid', w4,
                     'TotalPaid', w4,
-                    'TotalPayable', w4,
                     'RemainingDue', w4,
                     'PaymentDate', w2,
                     'PaymentAmount', w4,

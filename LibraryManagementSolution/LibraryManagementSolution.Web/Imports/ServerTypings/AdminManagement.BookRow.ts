@@ -19,24 +19,13 @@
         Discount?: number;
         Availability?: number;
         SortOrder?: number;
+        LookupText?: string;
         AuthorName?: string;
         AuthorNameBn?: string;
-        AuthorContactNo?: string;
-        AuthorMail?: string;
-        AuthorAbout?: string;
-        AuthorBirthDate?: string;
         TranslatorName?: string;
         TranslatorNameBn?: string;
-        TranslatorContactNo?: string;
-        TranslatorMail?: string;
-        TranslatorAbout?: string;
-        TranslatorBirthDate?: string;
         PublisherName?: string;
         PublisherNameBn?: string;
-        PublisherContactNo?: string;
-        PublisherMail?: string;
-        PublisherDescription?: string;
-        PublisherStartDate?: string;
         TopicName?: string;
         TopicNameBn?: string;
         CategoryName?: string;
@@ -47,7 +36,7 @@
 
     export namespace BookRow {
         export const idProperty = 'BookId';
-        export const nameProperty = 'NameBn';
+        export const nameProperty = 'LookupText';
         export const localTextPrefix = 'AdminManagement.Book';
         export const lookupKey = 'AdminManagement.Book';
 
@@ -79,24 +68,13 @@
             Discount = "Discount",
             Availability = "Availability",
             SortOrder = "SortOrder",
+            LookupText = "LookupText",
             AuthorName = "AuthorName",
             AuthorNameBn = "AuthorNameBn",
-            AuthorContactNo = "AuthorContactNo",
-            AuthorMail = "AuthorMail",
-            AuthorAbout = "AuthorAbout",
-            AuthorBirthDate = "AuthorBirthDate",
             TranslatorName = "TranslatorName",
             TranslatorNameBn = "TranslatorNameBn",
-            TranslatorContactNo = "TranslatorContactNo",
-            TranslatorMail = "TranslatorMail",
-            TranslatorAbout = "TranslatorAbout",
-            TranslatorBirthDate = "TranslatorBirthDate",
             PublisherName = "PublisherName",
             PublisherNameBn = "PublisherNameBn",
-            PublisherContactNo = "PublisherContactNo",
-            PublisherMail = "PublisherMail",
-            PublisherDescription = "PublisherDescription",
-            PublisherStartDate = "PublisherStartDate",
             TopicName = "TopicName",
             TopicNameBn = "TopicNameBn",
             CategoryName = "CategoryName",

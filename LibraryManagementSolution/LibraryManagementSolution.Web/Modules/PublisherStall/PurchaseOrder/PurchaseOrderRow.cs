@@ -1,4 +1,5 @@
-﻿using LibraryManagementSolution.Common;
+﻿using LibraryManagementSolution.AdminManagement;
+using LibraryManagementSolution.Common;
 using Serenity;
 using Serenity.ComponentModel;
 using Serenity.Data;
@@ -29,8 +30,8 @@ namespace LibraryManagementSolution.PublisherStall
             get => fields.TokenNo[this];
             set => fields.TokenNo[this] = value;
         }
-
-        [DisplayName("Publisher"), ForeignKey("[dbo].[AM_Publisher]", "PublisherId"), LeftJoin("jPublisher"), TextualField("PublisherName")]
+        [LookupEditor(typeof(PublisherRow))]
+        [DisplayName("Publisher"), ForeignKey("[dbo].[AM_Publisher]", "PublisherId"), LeftJoin("jPublisher"), TextualField("PublisherNameBn")]
         public Int64? PublisherId
         {
             get => fields.PublisherId[this];

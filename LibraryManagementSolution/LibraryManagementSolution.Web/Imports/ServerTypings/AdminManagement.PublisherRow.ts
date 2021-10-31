@@ -6,12 +6,13 @@
         ContactNo?: string;
         Mail?: string;
         Description?: string;
+        LookupText?: string;
         StartDate?: string;
     }
 
     export namespace PublisherRow {
         export const idProperty = 'PublisherId';
-        export const nameProperty = 'NameBn';
+        export const nameProperty = 'LookupText';
         export const localTextPrefix = 'AdminManagement.Publisher';
         export const lookupKey = 'AdminManagement.Publisher';
 
@@ -30,6 +31,7 @@
             ContactNo = "ContactNo",
             Mail = "Mail",
             Description = "Description",
+            LookupText = "LookupText",
             StartDate = "StartDate"
         }
     }

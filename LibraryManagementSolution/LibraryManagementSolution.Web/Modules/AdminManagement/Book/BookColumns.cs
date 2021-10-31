@@ -15,23 +15,24 @@ namespace LibraryManagementSolution.AdminManagement.Columns
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int64 BookId { get; set; }
         [EditLink]
-        public String Name { get; set; }
         public String NameBn { get; set; }
-        public String AuthorName { get; set; }
-        public String TranslatorName { get; set; }
-        public String PublisherName { get; set; }
-        public String TopicName { get; set; }
-        public String CategoryName { get; set; }
-        public String Edition { get; set; }
-        public Int32 NumberOfPages { get; set; }
-        public Int32 CountryId { get; set; }
-        public Int32 LanguageId { get; set; }
-        public String Summary { get; set; }
-        public String CoverImage { get; set; }
-        public String PreviewAttachment { get; set; }
+        public String AuthorNameBn { get; set; }
+        public String PublisherNameBn { get; set; }
+        public String TopicNameBn { get; set; }
+        public String Edition { get; set; }     
         public Decimal Price { get; set; }
         public Int32 Discount { get; set; }
         public Int32 Availability { get; set; }
         public Int32 SortOrder { get; set; }
+        [QuickFilter, Visible(false)]
+        public Int64 TopicId { get; set; }
+        [QuickFilter, Visible(false)]
+        public Int64 PublisherId { get; set; }
+        [QuickFilter, Visible(false)]
+        public Int64 AuthorId { get; set; }
+        [QuickFilter, Visible(false)]
+        public Int64 TranslatorId { get; set; }
+        [QuickFilter, Visible(false)]
+        public Int32 LanguageId { get; set; }
     }
 }

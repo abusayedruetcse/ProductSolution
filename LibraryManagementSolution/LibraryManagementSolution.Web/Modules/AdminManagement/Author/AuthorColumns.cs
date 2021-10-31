@@ -19,7 +19,6 @@ namespace LibraryManagementSolution.AdminManagement.Columns
         public String NameBn { get; set; }
         public String ContactNo { get; set; }
         public String Mail { get; set; }
-        public String About { get; set; }
         public DateTime BirthDate { get; set; }
     }
 }

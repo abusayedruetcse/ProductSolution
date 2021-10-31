@@ -7830,6 +7830,12 @@ section.content > .s-DataGrid {
 .s-AdminManagement-CountryDialog .caption {
   width: 150px;
 }
+.s-AdminManagement-EmployeeDialog > .size {
+  width: 650px;
+}
+.s-AdminManagement-EmployeeDialog .caption {
+  width: 150px;
+}
 .s-PublisherStall-PurchaseOrderDialog > .size {
   width: 650px;
 }
@@ -7852,5 +7858,29 @@ section.content > .s-DataGrid {
   width: 400px;
 }
 .s-PublisherStall-PurchaseOrderPaymentEditorDialog .caption {
+  width: 150px;
+}
+.s-StallCustomer-CustomerDialog > .size {
+  width: 650px;
+}
+.s-StallCustomer-CustomerDialog .caption {
+  width: 150px;
+}
+.s-StallCustomer-ProductSaleDialog > .size {
+  width: 650px;
+}
+.s-StallCustomer-ProductSaleDialog .caption {
+  width: 150px;
+}
+.s-StallCustomer-ProductSaleDetailDialog > .size {
+  width: 650px;
+}
+.s-StallCustomer-ProductSaleDetailDialog .caption {
+  width: 150px;
+}
+.s-StallCustomer-ProductSalePaymentDialog > .size {
+  width: 650px;
+}
+.s-StallCustomer-ProductSalePaymentDialog .caption {
   width: 150px;
 }

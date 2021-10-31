@@ -45,40 +45,36 @@ namespace LibraryManagementSolution.PublisherStall {
             this.form.Discount.value = 0;
 
             //calculation
-            this.sum = 0;
-            this.form.OrderDetailList.value.forEach(o => {
-                this.sum += o.LineTotal;
-            });
-            this.form.SubTotal.value = this.sum;
-
-            this.sum = 0;
-            this.form.OrderPayList.value.forEach(o => {
-                this.sum += o.PaymentAmount;
-            });
-            this.form.TotalPaid.value = this.form.InitialPaid.value + this.sum;
-
-            this.sum = 0;
-            this.form.OrderLessList.value.forEach(o => {
-                this.sum += o.PaymentAmount;
-            });
-            this.form.TotalLess.value = this.form.InitialLess.value + this.sum;
-
-            this.sum = this.form.SubTotal.value
-                + this.form.ServiceCharge.value
-                + this.form.Other.value
-                - this.form.TotalLess.value
-            this.form.TotalPayable.value = this.sum;
-
-            this.sum = this.form.TotalPayable.value - this.form.TotalPaid.value;
-            this.form.RemainingDue.value = this.sum;
-
+            this.calculateSubTotal();
+            this.calculateTotalPaid();
+            this.calculateTotalLess();
+            this.calculateTotalPayable();            
+            
             this.nextId = this.maxValue(this.form.OrderDetailList.value.length,
                 this.maxValue(this.form.OrderPayList.value.length, this.form.OrderLessList.value.length)
             );
         }
         protected afterLoadEntity() {
             super.afterLoadEntity();
+            if (this.form.Status.value == undefined || this.form.Status.value == '') {
+                this.form.Status.value = String(Common.PurchaseStatus.Draft);
+            }
+            if (this.form.Status.value == String(Common.PurchaseStatus.Draft)) {
+                q.hideEditorCategory(this.form.PaymentDate);
+            } else {
+                q.readOnlyEditor(this.form.TokenNo);
+                q.readOnlyEditor(this.form.PublisherId);
+                q.readOnlyEditor(this.form.OrderDate);
+                q.hideEditorCategory(this.form.BookId);
+                q.readOnlyEditor(this.form.OrderDetailList);
+                q.readOnlyEditor(this.form.ServiceCharge);
+                q.readOnlyEditor(this.form.Other);
+                q.hideField(this.form.InitialLess);
+                q.hideField(this.form.InitialPaid);
 
+            }
+
+            // validation checking for DetailList
             this.form.BookId.changeSelect2(e => {
                 var bookId = Q.toId(this.form.BookId.value);
                 if (bookId != null) {
@@ -103,6 +99,40 @@ namespace LibraryManagementSolution.PublisherStall {
 
             this.form.Discount.change(e => {
                 this.calculateLineTotal();
+            });
+
+            //Details List sum
+            (this.form.OrderDetailList.view as any).onRowsOrCountChanged.subscribe(() => {
+                this.calculateSubTotal();                
+            });
+            
+            (this.form.OrderDetailList.view as any).onDataChanged.subscribe(() => {
+                this.calculateSubTotal();                
+            });
+            
+            (this.form.OrderPayList.view as any).onDataChanged.subscribe(() => {
+                this.calculateTotalPaid();
+            });
+
+            (this.form.OrderLessList.view as any).onDataChanged.subscribe(() => {
+                this.calculateTotalLess();
+            });
+
+            //Change Event            
+            this.form.ServiceCharge.change(e => {
+                this.calculateTotalPayable();
+            });
+            this.form.Other.change(e => {
+                this.calculateTotalPayable();
+            });
+            this.form.InitialLess.change(e => {
+                this.form.TotalLess.value = this.form.InitialLess.value;
+                this.calculateTotalPayable();
+            });
+            
+            this.form.InitialPaid.change(e => {
+                this.form.TotalPaid.value = this.form.InitialPaid.value;
+                this.calculateRemainingDue();
             });
         }
         private calculateLineTotal() {
@@ -185,6 +215,43 @@ namespace LibraryManagementSolution.PublisherStall {
             } else {
                 return b;
             }
+        }
+        private calculateSubTotal() {
+            this.sum = 0;
+            for (var k of this.form.OrderDetailList.getItems()) {
+                this.sum += k.LineTotal || 0;
+            }
+            this.form.SubTotal.value = this.sum;
+            this.calculateTotalPayable();            
+        }
+        private calculateTotalPaid() {
+            this.sum = 0;
+            for (var k of this.form.OrderPayList.getItems()) {
+                this.sum += k.PaymentAmount || 0;
+            }
+            this.form.TotalPaid.value = this.form.InitialPaid.value + this.sum;
+            this.calculateRemainingDue();
+        }
+        private calculateTotalLess() {
+            this.sum = 0;
+            for (var k of this.form.OrderLessList.getItems()) {
+                this.sum += k.PaymentAmount || 0;
+            }
+            this.form.TotalLess.value = this.form.InitialLess.value + this.sum;
+            this.calculateTotalPayable();
+        }
+        private calculateTotalPayable() {
+            this.sum = 0;
+            this.sum = this.form.SubTotal.value
+                + this.form.ServiceCharge.value
+                + this.form.Other.value
+                - this.form.TotalLess.value
+            this.form.TotalPayable.value = this.sum;
+            this.calculateRemainingDue();
+        }
+        private calculateRemainingDue() {
+            this.sum = this.form.TotalPayable.value - this.form.TotalPaid.value;
+            this.form.RemainingDue.value = this.sum;
         }
     }
 }
